@@ -1,0 +1,72 @@
+﻿@model MvcStok.Models.Entity.TBLURUNLER
+
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Guncelle","Urun",FormMethod.Post))
+ {
+    <div class="form-group">
+        @Html.LabelFor(m => m.URUNID)
+        @Html.TextBoxFor(m => m.URUNID, new { @class = "form-control" })
+
+        <br />
+
+        @Html.LabelFor(m => m.URUNAD)
+        @Html.TextBoxFor(m => m.URUNAD, new { @class = "form-control" })
+
+        <br />
+
+        <label>Markası </label>
+
+        <select name="MARKA">
+            <option value="">MARKA SEÇİNİZ</option>
+            <option value="ARÇELİK">ARÇELİK</option>
+            <option value="VESTEL">VESTEL</option>
+            <option value="TEFAL">TEFAL</option>
+            <option value="HP">HP</option>
+            <option value="MONSTER">MONSTER</option>
+            <option value="KINGSTON">KINGSTON</option>
+            <option value="SAMSUNG">SAMSUNG</option>
+            <option value="LOGITECH">LOGITECH</option>
+            <option value="CORSAIR">CORSAIR</option>
+            <option value="APPLE">APPLE</option>
+            <option value="SONY">SONY</option>
+            <option value="ACER">ACER</option>
+            <option value="CASPER">CASPER</option>
+            <option value="LENOVO">LENOVO</option>
+
+
+        </select>
+
+        @*@Html.LabelFor(m => m.MARKA)
+        @Html.TextBoxFor(m => m.MARKA, new { @class = "form-control" })*@
+
+
+        <br />
+
+        @Html.LabelFor(m => m.URUNKATEGORI)
+        @Html.DropDownListFor(m => m.TBLKATEGORILER.KATEGORIID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+        <br />
+
+        @Html.LabelFor(m => m.FIYAT)
+        @Html.TextBoxFor(m => m.FIYAT, new { @class = "form-control" })
+
+        <br />
+
+        @Html.LabelFor(m => m.STOK)
+        @Html.TextBoxFor(m => m.STOK, new { @class = "form-control" })
+
+
+
+    </div>
+
+    <div>
+        <button class="btn btn-warning">Ürün Güncelle</button>
+    </div>
+
+ }
+
